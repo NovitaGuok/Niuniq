@@ -1,0 +1,43 @@
+<template>
+    <div class="sidebar container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <span class="fw-bold d-none d-sm-inline text-secondary mt-5 mb-4" style="font-size: .9rem">Profil
+                        Saya</span>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start align-items-sm-start w-100">
+                        <li class="nav-item flex-row w-100" v-for="(menu, index) in menus" :key="index">
+                            <btn-side-bar :menu-num="index + 1" :menu="menu" :route="route[index]"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <router-view />
+        </div>
+    </div>
+</template>
+
+<script>
+import BtnSideBar from "@/components/button/BtnSideBar.vue";
+
+export default {
+    name: "SideBar",
+    components: {
+        BtnSideBar
+    },
+    data() {
+        return {
+            menus: [
+                "Informasi Toko",
+                "Dashboard",
+                "Daftar Produk",
+            ],
+            route: [
+                "/shop-info",
+                "/dashboard",
+                "/product-list"
+            ]
+        }
+    },
+}
+</script>
