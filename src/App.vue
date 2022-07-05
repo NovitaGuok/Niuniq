@@ -2,19 +2,20 @@
     <nav-bar />
     <div class="flex-row">
         <side-bar />
-        <router-view />
     </div>
 </template>
 
 <script>
 import NavBar from "./components/bar/NavBar.vue";
 import SideBar from "./components/bar/SideBar.vue";
+// import ShopInfo from "@/components/pages/ShopInfo.vue";
 
 export default {
     name: "App",
     components: {
         NavBar,
-        SideBar
+        SideBar,
+        // ShopInfo
     },
 };
 </script>

@@ -1,9 +1,9 @@
 <template>
-    <router-link class="nav-link" :to="`${route}`">
+    <router-link class="nav-link p-0" :to="`${route}`">
         <button type="button" class="border-0 p-2 mb-3 fw-bold w-100 rounded menu-btn">
             <div class="d-flex flex-row">
-                <div class="bg-success me-2 rounded d-flex align-items-center justify-content-center menu-num">{{
-                menuNum }}
+                <div class="bg-success me-2 rounded d-flex align-items-center justify-content-center menu-num">
+                    {{ menuNum }}
                 </div>
                 <span class="text-success d-flex align-items-center">{{ menu }}</span>
             </div>
