@@ -53,7 +53,7 @@
 
 <script>
 export default {
-    name: "ShopInfo"
+    name: "DashboardView"
 }
 </script>
 
