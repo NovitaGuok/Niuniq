@@ -9,7 +9,7 @@
                 <span class="fs-1 fw-bold">Roemah Bamboe</span>
             </div>
             <button class="border-0 bg-white">
-                <img src="@/assets/img/action-edit.svg" alt="" class="d-inline-block align-text-top">
+                <img src="@/assets/img/ic-edit.svg" alt="" class="d-inline-block align-text-top">
             </button>
         </div>
         <div class="mb-3">

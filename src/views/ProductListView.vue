@@ -1,233 +1,256 @@
 <template>
     <div class="card p-4 border-0 shadow" style="border-radius: 8px;">
-        <span class="text-success fw-bold d-flex align-items-center fs-2">Daftar Produk</span>
-        <hr />
-        <div class="d-flex justify-content-between">
-            <div class="tab-wrap w-50 position-relative d-flex">
-                <input type="radio" name="tabs" id="tab1" checked>
-                <div class="tab-label-content" id="tab1-content">
-                    <label class="tab" for="tab1">Semua</label>
-                    <div class="tab-content">TAB 1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                        laoreet
-                        eget lectus eu congue. Nam finibus urna eget nisl aliquam, in dictum ligula feugiat. Donec
-                        mollis
-                        ligula purus, et interdum velit bibendum eget. Aliquam magna diam, tristique eu libero nec,
-                        sagittis
-                        finibus sapien. Cras a ex ultricies, faucibus elit sagittis, maximus nisi. Donec quis arcu
-                        sapien.
-                        Aenean risus nibh, varius sed porttitor a, ornare nec leo. Sed vitae lacus in ipsum varius
-                        sagittis.
-                        Ut in quam cursus, ullamcorper sapien posuere, laoreet elit. Suspendisse interdum, risus ut
-                        ultricies scelerisque, nibh est commodo leo, sed tristique nisl odio et turpis. Fusce
-                        pellentesque
-                        nunc nec arcu feugiat accumsan. Praesent mauris sem, eleifend sit amet tortor in, cursus
-                        vehicula
-                        arcu. Curabitur convallis sit amet nunc ac feugiat. Sed at risus id diam porta pretium id vel
-                        felis.
-                        Donec nec dui id nisl hendrerit laoreet eu id odio.</div>
+        <div class="wll">
+            <span class="text-success fw-bold d-flex align-items-center fs-2">Daftar Produk</span>
+            <hr />
+            <div class="">
+                <input id="tab1" type="radio" name="tabs" checked>
+                <input id="tab2" type="radio" name="tabs">
+                <input id="tab3" type="radio" name="tabs">
+                <input id="tab4" type="radio" name="tabs">
+
+                <div class="tab-wrapper d-flex align-items-start">
+                    <label class="tab1" for="tab1">Semua</label>
+                    <label class="tab2" for="tab2">Menunggu</label>
+                    <label class="tab3" for="tab3">Gagal</label>
+                    <label class="tab4" for="tab4">Selesai</label>
                 </div>
 
-                <input type="radio" name="tabs" id="tab2">
-                <div class="tab-label-content" id="tab2-content">
-                    <label class="tab" for="tab2">Menunggu</label>
-                    <div class="tab-content">TAB 2 - Quisque egestas, purus in tempor vulputate, diam augue mollis quam,
-                        quis elementum ipsum ex a risus. Quisque sed augue porta, facilisis felis vitae, cursus mi.
-                        Nullam
-                        mollis magna eget tincidunt mollis. Sed suscipit placerat ultricies. Sed eget lorem et ipsum
-                        ultricies congue eu a enim. Nam quis ex nec lorem dignissim suscipit eu ut felis. Vivamus
-                        molestie
-                        felis id purus congue, vel ultrices sem molestie.</div>
-                </div>
+                <section id="content1">
+                    <table class="table table-bordered text-start">
+                        <thead>
+                            <tr class="align-middle">
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Produk</th>
+                                <th scope="col">Status Verifikasi</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="align-middle">
+                                <td scope="row">1.</td>
+                                <td>Bootstrap 4 CDN and Starter Template</td>
+                                <td>
+                                    <Status />
+                                </td>
+                                <td class="d-flex">
+                                    <div class="btn-action-wrapper">
+                                        <button type="button" class="btn-action-main btn btn-success">
+                                            <img src="@/assets/img/ic-file-download.svg" alt=""
+                                                class="d-inline-block align-text-top">
+                                        </button>
+                                    </div>
+                                    <div class="btn-action-wrapper">
+                                        <button type="button" class="btn-action btn btn-outline-success">
+                                            <img src="@/assets/img/ic-edit-green.svg" alt=""
+                                                class="d-inline-block align-text-top">
+                                        </button>
+                                    </div>
+                                    <div class="btn-action-wrapper">
+                                        <button type="button" class="btn-action btn btn-outline-success">
+                                            <img src="@/assets/img/ic-delete-green.svg" alt=""
+                                                class="d-inline-block align-text-top">
+                                        </button>
+                                    </div>
+                                    <div class="btn-action-wrapper">
+                                        <button type="button" class="btn-action btn btn-outline-success">
+                                            <img src="@/assets/img/ic-eye-green.svg" alt=""
+                                                class="d-inline-block align-text-top">
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
 
-                <input type="radio" name="tabs" id="tab3">
-                <div class="tab-label-content" id="tab3-content">
-                    <label class="tab" for="tab3">Gagal</label>
-                    <div class="tab-content">TAB 3 - Donec vulputate ante ac ligula vestibulum, id mollis diam commodo.
-                        Integer at consequat magna. Sed elit sem, dictum nec porttitor ac, ultrices id enim. Morbi
-                        semper
-                        eros a enim malesuada, eu finibus erat dictum. Ut vitae orci a odio sagittis malesuada. Cras
-                        volutpat vel lorem in tempor. Duis ultricies lectus sit amet tellus vehicula faucibus. Etiam sed
-                        leo
-                        ac erat tempor feugiat at quis ipsum. Mauris pellentesque nisl lorem, ac finibus sapien sagittis
-                        vel. Donec et lobortis est. Vestibulum dignissim ligula nec erat interdum, quis sollicitudin
-                        metus
-                        pretium. Vestibulum quis dui sapien. Proin commodo justo ac orci elementum molestie. Aliquam
-                        mattis
-                        orci vitae volutpat commodo.</div>
-                </div>
+                <section id="content2">
+                    <p>
+                        Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin ball
+                        tip turducken. Pork belly meatball t-bone bresaola tail filet mignon kevin turkey ribeye
+                        shank flank doner cow kielbasa shankle. Pig swine chicken hamburger, tenderloin turkey rump
+                        ball tip sirloin frankfurter meatloaf boudin brisket ham hock. Hamburger venison brisket
+                        tri-tip andouille pork belly ball tip short ribs biltong meatball chuck. Pork chop ribeye
+                        tail short ribs, beef hamburger meatball kielbasa rump corned beef porchetta landjaeger
+                        flank. Doner rump frankfurter meatball meatloaf, cow kevin pork pork loin venison fatback
+                        spare ribs salami beef ribs.
+                    </p>
+                    <p>
+                        Jerky jowl pork chop tongue, kielbasa shank venison. Capicola shank pig ribeye leberkas
+                        filet mignon brisket beef kevin tenderloin porchetta. Capicola fatback venison shank
+                        kielbasa, drumstick ribeye landjaeger beef kevin tail meatball pastrami prosciutto pancetta.
+                        Tail kevin spare ribs ground round ham ham hock brisket shoulder. Corned beef tri-tip
+                        leberkas flank sausage ham hock filet mignon beef ribs pancetta turkey.
+                    </p>
+                </section>
 
-                <input type="radio" name="tabs" id="tab4">
-                <div class="tab-label-content" id="tab4-content">
-                    <label class="tab" for="tab4">Selesai</label>
-                    <div class="tab-content">TAB 4 - Quisque egestas, purus in tempor vulputate, diam augue mollis quam,
-                        quis elementum ipsum ex a risus. Quisque sed augue porta, facilisis felis vitae, cursus mi.
-                        Nullam
-                        mollis magna eget tincidunt mollis. Sed suscipit placerat ultricies. Sed eget lorem et ipsum
-                        ultricies congue eu a enim. Nam quis ex nec lorem dignissim suscipit eu ut felis. Vivamus
-                        molestie
-                        felis id purus congue, vel ultrices sem molestie.</div>
-                </div>
+                <section id="content3">
+                    <p>
+                        Bacon ipsum dolor sit amet beef venison beef ribs kielbasa. Sausage pig leberkas, t-bone
+                        sirloin shoulder bresaola. Frankfurter rump porchetta ham. Pork belly prosciutto brisket
+                        meatloaf short ribs.
+                    </p>
+                    <p>
+                        Brisket meatball turkey short loin boudin leberkas meatloaf chuck andouille pork loin
+                        pastrami spare ribs pancetta rump. Frankfurter corned beef beef tenderloin short loin
+                        meatloaf swine ground round venison.
+                    </p>
+                </section>
 
-                <div class="slide"></div>
+                <section id="content4">
+                    <p>
+                        Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin ball
+                        tip turducken. Pork belly meatball t-bone bresaola tail filet mignon kevin turkey ribeye
+                        shank flank doner cow kielbasa shankle. Pig swine chicken hamburger, tenderloin turkey rump
+                        ball tip sirloin frankfurter meatloaf boudin brisket ham hock. Hamburger venison brisket
+                        tri-tip andouille pork belly ball tip short ribs biltong meatball chuck. Pork chop ribeye
+                        tail short ribs, beef hamburger meatball kielbasa rump corned beef porchetta landjaeger
+                        flank. Doner rump frankfurter meatball meatloaf, cow kevin pork pork loin venison fatback
+                        spare ribs salami beef ribs.
+                    </p>
+                    <p>
+                        Jerky jowl pork chop tongue, kielbasa shank venison. Capicola shank pig ribeye leberkas
+                        filet mignon brisket beef kevin tenderloin porchetta. Capicola fatback venison shank
+                        kielbasa, drumstick ribeye landjaeger beef kevin tail meatball pastrami prosciutto pancetta.
+                        Tail kevin spare ribs ground round ham ham hock brisket shoulder. Corned beef tri-tip
+                        leberkas flank sausage ham hock filet mignon beef ribs pancetta turkey.
+                    </p>
+                </section>
             </div>
-            <button type="button" class="btn btn-success text-white fw-bold">Tambah Produk</button>
+            <div class="btn-add-product-wrapper">
+                <button type="button" class="btn-add-product btn btn-success text-white fw-bold">Tambah
+                    Produk</button>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import Status from '../components/status/VerificationStatus.vue'
+
 export default {
     name: "ProductListView",
+    components: {
+        Status,
+    }
 }
 </script>
 
 <style scoped lang="scss">
-$aliceBlue: #e9f8ee;
-$success: #28a745;
-$muted: #b0b3bb;
-$num-of-tabs: 4;
-
-@mixin tabs {
-    @for $i from 1 through $num-of-tabs {
-        &:nth-of-type(#{$i}) {
-            &:checked {
-                ~.slide {
-                    left: calc((100% / #{$num-of-tabs}) * #{$i - 1});
-                }
-            }
-        }
-    }
+section {
+    display: none;
+    padding: 20px 0 0;
 }
 
-.tab-wrap {
-    position: relative;
-
-    &::after {
-        position: absolute;
-        content: '';
-        width: 100%;
-        height: 4px;
-        z-index: 1;
-        background-color: $muted;
-        bottom: 0;
-    }
-}
-
-input[type="radio"][name="tabs"] {
-    position: absolute;
-    z-index: -1;
-
-    &:checked {
-        +.tab-label-content {
-            .tab {
-                background: $aliceBlue !important;
-            }
-
-            label {
-                color: $success;
-            }
-
-            .tab-content {
-                display: block;
-            }
-        }
-    }
-
-    @include tabs;
-
-    &:first-of-type {
-        &:checked {
-            ~.slide {
-                left: 0;
-            }
-        }
-    }
+input {
+    display: none;
 }
 
 label {
-    cursor: pointer;
-    color: $muted;
-    background-color: white;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    box-sizing: border-box;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 600;
     text-align: center;
-    height: 56px;
-    transition: color 0.2s ease;
-    width: 100%;
+    color: #bbb;
+    border-bottom: 4px solid #ddd;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
-.slide {
-    background: $success;
-    width: calc(100% / #{$num-of-tabs});
-    height: 4px;
-    position: absolute;
-    left: 0;
-    top: calc(100% - 4px);
-    transition: left 0.3s ease-out;
-    z-index: 2;
+label:hover {
+    color: #888;
+    cursor: pointer;
 }
 
-.tab-label-content {
-    width: 100%;
-
-    .tab-content {
-        position: absolute;
-        top: 100px;
-        left: 16px;
-        line-height: 130%;
-        display: none;
-    }
+input:checked+label {
+    color: #555;
+    border-bottom: 4px solid #4CAF50;
 }
 
-@media screen and (max-width: 800px) {
-    h1 {
-        padding: 40px 0 90px 10%;
-    }
-
-    .tab-wrap {
-        width: 80%;
-        margin-left: 10%;
-        top: -106px;
-    }
-}
-
-.follow {
-    width: 42px;
-    height: 42px;
-    border-radius: 50px;
-    background: #03A9F4;
+#tab1:checked~#content1,
+#tab2:checked~#content2,
+#tab3:checked~#content3,
+#tab4:checked~#content4 {
     display: block;
-    margin: 300px auto 0;
-    white-space: nowrap;
-    padding: 13px;
-    box-sizing: border-box;
-    color: $muted;
-    transition: all 0.2s ease;
-    font-family: Roboto, sans-serif;
-    text-decoration: none;
-    box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.2);
+}
 
-    i {
-        margin-right: 20px;
-        transition: margin-right 0.2s ease;
+#tab1:checked~.tab-wrapper>.tab1 {
+    background-color: #e9f8ee;
+    border-bottom: 4px solid #4CAF50;
+    color: #4CAF50
+}
+
+#tab2:checked~.tab-wrapper>.tab2 {
+    background-color: #e9f8ee;
+    border-bottom: 4px solid #4CAF50;
+    color: #4CAF50
+}
+
+#tab3:checked~.tab-wrapper>.tab3 {
+    background-color: #e9f8ee;
+    border-bottom: 4px solid #4CAF50;
+    color: #4CAF50
+}
+
+#tab4:checked~.tab-wrapper>.tab4 {
+    background-color: #e9f8ee;
+    border-bottom: 4px solid #4CAF50;
+    color: #4CAF50
+}
+
+.btn-add-product-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.btn-add-product {
+    height: 3rem;
+
+}
+
+.btn-action-wrapper {
+    padding: 0.3rem;
+}
+
+.btn-action {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #4CAF50;
+    background-color: transparent;
+}
+
+.btn-action-main {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #4CAF50;
+}
+
+.btn-action img {
+    width: 1.5rem;
+    color: #4CAF50;
+}
+
+@media screen and (max-width: 650px) {
+    label {
+        font-size: 0;
     }
 
-    &:hover {
-        width: 134px;
-
-        i {
-            margin-right: 10px;
-        }
+    label:before {
+        margin: 0;
+        font-size: 18px;
     }
 }
 
-@media screen and (max-width: 800px) {
-    .follow {
-        margin: 400px auto 0;
+@media screen and (max-width: 400px) {
+    label {
+        padding: 15px;
     }
 }
 </style>

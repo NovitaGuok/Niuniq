@@ -8,14 +8,12 @@
 <script>
 import NavBar from "./components/bar/NavBar.vue";
 import SideBar from "./components/bar/SideBar.vue";
-// import ShopInfo from "@/components/pages/ShopInfo.vue";
 
 export default {
     name: "App",
     components: {
         NavBar,
         SideBar,
-        // ShopInfo
     },
 };
 </script>
