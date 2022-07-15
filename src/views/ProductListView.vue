@@ -1,9 +1,13 @@
 <template>
     <div class="card p-4 border-0 shadow" style="border-radius: 8px;">
-        <div class="wll">
+        <div class="">
             <span class="text-success fw-bold d-flex align-items-center fs-2">Daftar Produk</span>
             <hr />
-            <div class="">
+            <!-- <div class="btn-add-product-wrapper">
+                <button type="button" class="btn-add-product btn btn-success text-white fw-bold">Tambah
+                    Produk</button>
+            </div> -->
+            <div class="tab-data">
                 <input id="tab1" type="radio" name="tabs" checked>
                 <input id="tab2" type="radio" name="tabs">
                 <input id="tab3" type="radio" name="tabs">
@@ -116,10 +120,25 @@
                         leberkas flank sausage ham hock filet mignon beef ribs pancetta turkey.
                     </p>
                 </section>
-            </div>
-            <div class="btn-add-product-wrapper">
-                <button type="button" class="btn-add-product btn btn-success text-white fw-bold">Tambah
-                    Produk</button>
+
+                <!-- Pagination -->
+                <nav class="nav-pagination mt-5 p-0 d-flex justify-content-end" aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&lt;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&gt;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
@@ -202,6 +221,7 @@ input:checked+label {
     display: flex;
     width: 100%;
     justify-content: flex-end;
+    position: absolute;
 }
 
 .btn-add-product {
@@ -234,6 +254,14 @@ input:checked+label {
 
 .btn-action img {
     width: 1.5rem;
+    color: #4CAF50;
+}
+
+.nav-pagination {
+
+}
+
+.page-link {
     color: #4CAF50;
 }
 
