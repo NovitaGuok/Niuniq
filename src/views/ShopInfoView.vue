@@ -1,5 +1,5 @@
 <template>
-    <div class="card p-4 border-0 shadow" style="border-radius: 8px;">
+    <div id="shop-info" class="card p-4 border-0 shadow" style="border-radius: 8px;">
         <span class="text-success fw-bold d-flex align-items-center fs-2">Informasi Toko</span>
         <hr />
         <img src="@/assets/img/shop-info.png" class="card-img-bottom mt-3 mb-3">

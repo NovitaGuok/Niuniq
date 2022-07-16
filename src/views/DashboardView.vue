@@ -1,5 +1,5 @@
 <template>
-    <div class="card p-4 border-0 shadow d-flex" style="border-radius: 8px;">
+    <div id="dashboard" class="card p-4 border-0 shadow d-flex" style="border-radius: 8px;">
         <span class="text-success fw-bold d-flex fs-2">Dashboard</span>
         <hr class="w-100 mb-4" />
         <div class="dashboard-items row">

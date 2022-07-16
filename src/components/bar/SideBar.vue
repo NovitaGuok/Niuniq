@@ -13,7 +13,10 @@
                 </div>
             </div>
             <div class="bg-light p-4 pe-5" style="width: 85%;">
-                <router-view />
+                    <!-- <router-view /> -->
+                <shop-info class="mb-4"/>
+                <dashboard class="mb-4"/>
+                <product-list />
             </div>
         </div>
     </div>
@@ -21,11 +24,17 @@
 
 <script>
 import BtnSideBar from "@/components/button/BtnSideBar.vue";
+import Dashboard from "@/views/DashboardView.vue";
+import ProductList from "@/views/ProductListView.vue";
+import ShopInfo from "@/views/ShopInfoView.vue";
 
 export default {
     name: "SideBar",
     components: {
-        BtnSideBar
+        BtnSideBar,
+        Dashboard,
+        ProductList,
+        ShopInfo
     },
     data() {
         return {
@@ -35,9 +44,9 @@ export default {
                 "Daftar Produk",
             ],
             route: [
-                "/shop-info",
-                "/dashboard",
-                "/product-list"
+                "shop-info",
+                "dashboard",
+                "product-list"
             ]
         }
     },

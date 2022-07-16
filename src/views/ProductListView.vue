@@ -1,5 +1,5 @@
 <template>
-    <div class="card p-4 border-0 shadow" style="border-radius: 8px;">
+    <div id="product-list" class="card p-4 border-0 shadow" style="border-radius: 8px;">
         <div class="">
             <span class="text-success fw-bold d-flex align-items-center fs-2">Daftar Produk</span>
             <hr />
@@ -25,7 +25,8 @@
                         <thead>
                             <tr class="align-middle">
                                 <th scope="col">No</th>
-                                <th scope="col">Nama Produk</th>
+                                <th scope="col" v-on:click="sortBy(column)"><span>Nama Produk<img
+                                            src="@/assets/img/ic-sort.svg" alt=""></span></th>
                                 <th scope="col">Status Verifikasi</th>
                                 <th scope="col">Aksi</th>
                             </tr>
@@ -73,7 +74,7 @@
                         <thead>
                             <tr class="align-middle">
                                 <th scope="col">No</th>
-                                <th scope="col">Nama Produk</th>
+                                <th scope="col"><span>Nama Produk<img src="@/assets/img/ic-sort.svg" alt=""></span></th>
                                 <th scope="col">Status Verifikasi</th>
                                 <th scope="col">Aksi</th>
                             </tr>
@@ -123,14 +124,15 @@
                         <thead>
                             <tr class="align-middle">
                                 <th scope="col">No</th>
-                                <th scope="col">Nama Produk</th>
+                                <th scope="col"><span>Nama Produk<img src="@/assets/img/ic-sort.svg" alt=""></span></th>
                                 <th scope="col">Status Verifikasi</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <template v-for="(product, index) in productList" :key="product._id">
-                                <tr class="align-middle" v-if="!product.isVerification && null">
+                                <tr class="align-middle"
+                                    v-if="!product.isVerification && product.isVerification !== null">
                                     <td scope="row">{{ index + 1 }}.</td>
                                     <td>{{ product.name }}</td>
                                     <td>
@@ -173,7 +175,7 @@
                         <thead>
                             <tr class="align-middle">
                                 <th scope="col">No</th>
-                                <th scope="col">Nama Produk</th>
+                                <th scope="col"><span>Nama Produk<img src="@/assets/img/ic-sort.svg" alt=""></span></th>
                                 <th scope="col">Status Verifikasi</th>
                                 <th scope="col">Aksi</th>
                             </tr>
@@ -230,6 +232,7 @@
                         <li class="page-item"><a class="page-link" href="#">1</a></li>
                         <li class="page-item"><a class="page-link" href="#">2</a></li>
                         <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
                         <li class="page-item">
                             <a class="page-link" href="#" aria-label="Next">
                                 <span aria-hidden="true">&gt;</span>
@@ -266,9 +269,11 @@ export default {
                 url: 'https://niuniq.herokuapp.com/api/web/niuniq/products',
                 headers: {
                     'Cookie': `token=${localStorage.getItem("token")}`
+                },
+                params: {
+                    limit: 5,
                 }
             };
-
             axios(config)
                 .then((response) => {
                     console.log(JSON.stringify(response.data.data));
@@ -277,7 +282,7 @@ export default {
                 .catch((error) => {
                     console.log(error);
                 });
-        }
+        },
     }
 }
 </script>
