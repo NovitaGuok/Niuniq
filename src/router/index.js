@@ -2,14 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import ShopInfo from '../views/ShopInfoView.vue'
 import Dashboard from '../views/DashboardView.vue'
 import ProductList from '../views/ProductListView.vue'
-import DummyPage from '../pages/DummyPage.vue'
 
 const routes = [
-    {
-        path: '/login',
-        name: 'Login',
-        component: DummyPage
-    },
     {
         path: '/shop-info',
         name: 'ShopInfo',
