@@ -31,11 +31,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="align-middle">
-                                <td scope="row">1.</td>
-                                <td>Bootstrap 4 CDN and Starter Template</td>
+                            <tr class="align-middle" v-for="(product, index) in productList" :key="product._id">
+                                <td scope="row">{{ index + 1 }}.</td>
+                                <td>{{ product.name }}</td>
                                 <td>
-                                    <Status />
+                                    <Status :verification-status="product.isVerification" />
                                 </td>
                                 <td class="d-flex">
                                     <div class="btn-action-wrapper">
@@ -69,56 +69,154 @@
                 </section>
 
                 <section id="content2">
-                    <p>
-                        Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin ball
-                        tip turducken. Pork belly meatball t-bone bresaola tail filet mignon kevin turkey ribeye
-                        shank flank doner cow kielbasa shankle. Pig swine chicken hamburger, tenderloin turkey rump
-                        ball tip sirloin frankfurter meatloaf boudin brisket ham hock. Hamburger venison brisket
-                        tri-tip andouille pork belly ball tip short ribs biltong meatball chuck. Pork chop ribeye
-                        tail short ribs, beef hamburger meatball kielbasa rump corned beef porchetta landjaeger
-                        flank. Doner rump frankfurter meatball meatloaf, cow kevin pork pork loin venison fatback
-                        spare ribs salami beef ribs.
-                    </p>
-                    <p>
-                        Jerky jowl pork chop tongue, kielbasa shank venison. Capicola shank pig ribeye leberkas
-                        filet mignon brisket beef kevin tenderloin porchetta. Capicola fatback venison shank
-                        kielbasa, drumstick ribeye landjaeger beef kevin tail meatball pastrami prosciutto pancetta.
-                        Tail kevin spare ribs ground round ham ham hock brisket shoulder. Corned beef tri-tip
-                        leberkas flank sausage ham hock filet mignon beef ribs pancetta turkey.
-                    </p>
+                    <table class="table table-bordered text-start">
+                        <thead>
+                            <tr class="align-middle">
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Produk</th>
+                                <th scope="col">Status Verifikasi</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template v-for="(product, index) in productList" :key="product._id">
+                                <tr class="align-middle" v-if="product.isVerification == null">
+                                    <td scope="row">{{ index + 1 }}.</td>
+                                    <td>{{ product.name }}</td>
+                                    <td>
+                                        <Status :verification-status="product.isVerification" />
+                                    </td>
+                                    <td class="d-flex">
+                                        <div class="btn-action-wrapper">
+                                            <button type="button" class="btn-action-main btn btn-success">
+                                                <img src="@/assets/img/ic-file-download.svg" alt=""
+                                                    class="d-inline-block align-text-top">
+                                            </button>
+                                        </div>
+                                        <div class="btn-action-wrapper">
+                                            <button type="button" class="btn-action btn btn-outline-success">
+                                                <img src="@/assets/img/ic-edit-green.svg" alt=""
+                                                    class="d-inline-block align-text-top">
+                                            </button>
+                                        </div>
+                                        <div class="btn-action-wrapper">
+                                            <button type="button" class="btn-action btn btn-outline-success">
+                                                <img src="@/assets/img/ic-delete-green.svg" alt=""
+                                                    class="d-inline-block align-text-top">
+                                            </button>
+                                        </div>
+                                        <div class="btn-action-wrapper">
+                                            <button type="button" class="btn-action btn btn-outline-success">
+                                                <img src="@/assets/img/ic-eye-green.svg" alt=""
+                                                    class="d-inline-block align-text-top">
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
                 </section>
 
                 <section id="content3">
-                    <p>
-                        Bacon ipsum dolor sit amet beef venison beef ribs kielbasa. Sausage pig leberkas, t-bone
-                        sirloin shoulder bresaola. Frankfurter rump porchetta ham. Pork belly prosciutto brisket
-                        meatloaf short ribs.
-                    </p>
-                    <p>
-                        Brisket meatball turkey short loin boudin leberkas meatloaf chuck andouille pork loin
-                        pastrami spare ribs pancetta rump. Frankfurter corned beef beef tenderloin short loin
-                        meatloaf swine ground round venison.
-                    </p>
+                    <table class="table table-bordered text-start">
+                        <thead>
+                            <tr class="align-middle">
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Produk</th>
+                                <th scope="col">Status Verifikasi</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template v-for="(product, index) in productList" :key="product._id">
+                                <tr class="align-middle" v-if="!product.isVerification && null">
+                                    <td scope="row">{{ index + 1 }}.</td>
+                                    <td>{{ product.name }}</td>
+                                    <td>
+                                        <Status :verification-status="product.isVerification" />
+                                    </td>
+                                    <td class="d-flex">
+                                        <div class="btn-action-wrapper">
+                                            <button type="button" class="btn-action-main btn btn-success">
+                                                <img src="@/assets/img/ic-file-download.svg" alt=""
+                                                    class="d-inline-block align-text-top">
+                                            </button>
+                                        </div>
+                                        <div class="btn-action-wrapper">
+                                            <button type="button" class="btn-action btn btn-outline-success">
+                                                <img src="@/assets/img/ic-edit-green.svg" alt=""
+                                                    class="d-inline-block align-text-top">
+                                            </button>
+                                        </div>
+                                        <div class="btn-action-wrapper">
+                                            <button type="button" class="btn-action btn btn-outline-success">
+                                                <img src="@/assets/img/ic-delete-green.svg" alt=""
+                                                    class="d-inline-block align-text-top">
+                                            </button>
+                                        </div>
+                                        <div class="btn-action-wrapper">
+                                            <button type="button" class="btn-action btn btn-outline-success">
+                                                <img src="@/assets/img/ic-eye-green.svg" alt=""
+                                                    class="d-inline-block align-text-top">
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
                 </section>
 
                 <section id="content4">
-                    <p>
-                        Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin ball
-                        tip turducken. Pork belly meatball t-bone bresaola tail filet mignon kevin turkey ribeye
-                        shank flank doner cow kielbasa shankle. Pig swine chicken hamburger, tenderloin turkey rump
-                        ball tip sirloin frankfurter meatloaf boudin brisket ham hock. Hamburger venison brisket
-                        tri-tip andouille pork belly ball tip short ribs biltong meatball chuck. Pork chop ribeye
-                        tail short ribs, beef hamburger meatball kielbasa rump corned beef porchetta landjaeger
-                        flank. Doner rump frankfurter meatball meatloaf, cow kevin pork pork loin venison fatback
-                        spare ribs salami beef ribs.
-                    </p>
-                    <p>
-                        Jerky jowl pork chop tongue, kielbasa shank venison. Capicola shank pig ribeye leberkas
-                        filet mignon brisket beef kevin tenderloin porchetta. Capicola fatback venison shank
-                        kielbasa, drumstick ribeye landjaeger beef kevin tail meatball pastrami prosciutto pancetta.
-                        Tail kevin spare ribs ground round ham ham hock brisket shoulder. Corned beef tri-tip
-                        leberkas flank sausage ham hock filet mignon beef ribs pancetta turkey.
-                    </p>
+                    <table class="table table-bordered text-start">
+                        <thead>
+                            <tr class="align-middle">
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Produk</th>
+                                <th scope="col">Status Verifikasi</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template v-for="(product, index) in productList" :key="product._id">
+                                <tr class="align-middle" v-if="product.isVerification">
+                                    <td scope="row">{{ index + 1 }}.</td>
+                                    <td>{{ product.name }}</td>
+                                    <td>
+                                        <Status :verification-status="product.isVerification" />
+                                    </td>
+                                    <td class="d-flex">
+                                        <div class="btn-action-wrapper">
+                                            <button type="button" class="btn-action-main btn btn-success">
+                                                <img src="@/assets/img/ic-file-download.svg" alt=""
+                                                    class="d-inline-block align-text-top">
+                                            </button>
+                                        </div>
+                                        <div class="btn-action-wrapper">
+                                            <button type="button" class="btn-action btn btn-outline-success">
+                                                <img src="@/assets/img/ic-edit-green.svg" alt=""
+                                                    class="d-inline-block align-text-top">
+                                            </button>
+                                        </div>
+                                        <div class="btn-action-wrapper">
+                                            <button type="button" class="btn-action btn btn-outline-success">
+                                                <img src="@/assets/img/ic-delete-green.svg" alt=""
+                                                    class="d-inline-block align-text-top">
+                                            </button>
+                                        </div>
+                                        <div class="btn-action-wrapper">
+                                            <button type="button" class="btn-action btn btn-outline-success">
+                                                <img src="@/assets/img/ic-eye-green.svg" alt=""
+                                                    class="d-inline-block align-text-top">
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+
+                        </tbody>
+                    </table>
                 </section>
 
                 <!-- Pagination -->
@@ -146,11 +244,40 @@
 
 <script>
 import Status from '../components/status/VerificationStatus.vue'
+import axios from 'axios'
 
 export default {
     name: "ProductListView",
     components: {
         Status,
+    },
+    data() {
+        return {
+            productList: []
+        }
+    },
+    created() {
+        this.getData()
+    },
+    methods: {
+        getData() {
+            var config = {
+                method: 'get',
+                url: 'https://niuniq.herokuapp.com/api/web/niuniq/products',
+                headers: {
+                    'Cookie': `token=${localStorage.getItem("token")}`
+                }
+            };
+
+            axios(config)
+                .then((response) => {
+                    console.log(JSON.stringify(response.data.data));
+                    this.productList = response.data.data
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
     }
 }
 </script>
@@ -255,10 +382,6 @@ input:checked+label {
 .btn-action img {
     width: 1.5rem;
     color: #4CAF50;
-}
-
-.nav-pagination {
-
 }
 
 .page-link {
