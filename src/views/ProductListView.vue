@@ -385,7 +385,13 @@
                 ? 'bg-success text-white'
                 : 'bg-white text-success'
             "
-            v-on:click="getProductsByPage(2)"
+            v-on:click="
+              getProductsByPage(
+                data.pagination?.next?.page - 1 < 4
+                  ? 2
+                  : data.pagination?.next?.page - 1
+              )
+            "
           >
             {{ data.pagination?.next?.page - 1 < 4 ? 2 : "..." }}
           </div>
@@ -397,7 +403,13 @@
                 ? 'bg-success text-white'
                 : 'bg-white text-success'
             "
-            v-on:click="getProductsByPage(3)"
+            v-on:click="
+              getProductsByPage(
+                data.pagination?.next?.page - 1 < 4
+                  ? 3
+                  : data.pagination?.next?.page - 1
+              )
+            "
           >
             {{
               data.pagination?.next?.page - 1 < 4
@@ -407,7 +419,13 @@
           </div>
           <div
             class="page-item bg-white text-success"
-            v-on:click="getProductsByPage(4)"
+            v-on:click="
+              getProductsByPage(
+                data.pagination?.next?.page - 1 < 4
+                  ? 4
+                  : data.pagination?.next?.page
+              )
+            "
           >
             {{
               data.pagination?.next?.page - 1 < 4
