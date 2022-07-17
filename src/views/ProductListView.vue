@@ -249,7 +249,6 @@
 <script>
 import Status from '../components/status/VerificationStatus.vue'
 import axios from 'axios'
-import { useState } from '../composable/state'
 
 export default {
     name: "ProductListView",
@@ -266,14 +265,6 @@ export default {
         this.getProducts()
         this.getData()
     },
-    setup() {
-        const [count, setCount] = useState(0);
-
-        return {
-            count,
-            setCount,
-        };
-    },
     methods: {
         getProducts() {
             var config = {
@@ -282,9 +273,6 @@ export default {
                 headers: {
                     'Cookie': `token=${localStorage.getItem("token")}`
                 },
-                // params: {
-                //     limit: 5,
-                // }
             };
             axios(config)
                 .then((response) => {
