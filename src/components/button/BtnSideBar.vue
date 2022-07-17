@@ -13,9 +13,6 @@
 export default {
     name: "BtnSideBar",
     props: ["menu-num", "menu", "route"],
-    mounted() {
-        console.log("BtnSideBar", this.route)
-    }
 }
 </script>
 

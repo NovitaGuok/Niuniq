@@ -1,12 +1,12 @@
 <template>
     <div id="product-list" class="card p-4 border-0 shadow" style="border-radius: 8px;">
-        <div class="">
+        <div class="position-relative">
             <span class="text-success fw-bold d-flex align-items-center fs-2">Daftar Produk</span>
             <hr />
-            <!-- <div class="btn-add-product-wrapper">
+            <div class="btn-add-product-wrapper">
                 <button type="button" class="btn-add-product btn btn-success text-white fw-bold">Tambah
                     Produk</button>
-            </div> -->
+            </div>
             <div class="tab-data">
                 <input id="tab1" type="radio" name="tabs" checked>
                 <input id="tab2" type="radio" name="tabs">
@@ -222,24 +222,25 @@
                 </section>
 
                 <!-- Pagination -->
-                <nav class="nav-pagination mt-5 p-0 d-flex justify-content-end" aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&lt;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&gt;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                <div class=" fw-bold d-flex justify-content-end mt-5">
+                    <div class="page-item bg-white text-success" v-if="data.pagination?.next?.page - 1 !== 1"
+                        v-on:click="getProductsByPage(data.pagination?.prev?.page)">
+                        &lt;
+                    </div>
+                    <div class="page-item"
+                        :class="data.pagination?.next?.page - 1 === 1 ? 'bg-success text-white' : 'bg-white text-success'"
+                        v-on:click="getProductsByPage(1)">
+                        1
+                    </div>
+                    <div class="page-item bg-success text-white" v-on:click="getProductsByPage()">
+                        1
+                    </div>
+                    <div class="page-item bg-white text-success"
+                        v-on:click="getProductsByPage(data.pagination?.next?.page)">
+                        &gt;
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -248,6 +249,7 @@
 <script>
 import Status from '../components/status/VerificationStatus.vue'
 import axios from 'axios'
+import { useState } from '../composable/state'
 
 export default {
     name: "ProductListView",
@@ -256,23 +258,33 @@ export default {
     },
     data() {
         return {
-            productList: []
+            productList: [],
+            data: {}
         }
     },
     created() {
+        this.getProducts()
         this.getData()
     },
+    setup() {
+        const [count, setCount] = useState(0);
+
+        return {
+            count,
+            setCount,
+        };
+    },
     methods: {
-        getData() {
+        getProducts() {
             var config = {
                 method: 'get',
                 url: 'https://niuniq.herokuapp.com/api/web/niuniq/products',
                 headers: {
                     'Cookie': `token=${localStorage.getItem("token")}`
                 },
-                params: {
-                    limit: 5,
-                }
+                // params: {
+                //     limit: 5,
+                // }
             };
             axios(config)
                 .then((response) => {
@@ -283,6 +295,44 @@ export default {
                     console.log(error);
                 });
         },
+        getData() {
+            var config = {
+                method: 'get',
+                url: 'https://niuniq.herokuapp.com/api/web/niuniq/products',
+                headers: {
+                    'Cookie': `token=${localStorage.getItem("token")}`
+                },
+            };
+            axios(config)
+                .then((response) => {
+                    console.log(JSON.stringify(response.data));
+                    console.log(response.data.pagination.next.page);
+                    this.data = response.data
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
+        getProductsByPage(page) {
+            var config = {
+                method: 'get',
+                url: `https://niuniq.herokuapp.com/api/web/niuniq/products/?page=${page}`,
+                headers: {
+                    'Cookie': `token=${localStorage.getItem("token")}`
+                },
+            };
+            axios(config)
+                .then((response) => {
+                    console.log(JSON.stringify(response.data));
+                    console.log(response.data.pagination.next.page);
+                    console.log(response.data.data);
+                    this.data = response.data
+                    this.productList = response.data.data
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
     }
 }
 </script>
@@ -349,11 +399,15 @@ input:checked+label {
     color: #4CAF50
 }
 
+.tab-data {
+    z-index: 999;
+}
+
 .btn-add-product-wrapper {
     display: flex;
-    width: 100%;
     justify-content: flex-end;
     position: absolute;
+    right: 0
 }
 
 .btn-add-product {
@@ -391,6 +445,16 @@ input:checked+label {
 
 .page-link {
     color: #4CAF50;
+}
+
+.page-item {
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 650px) {
