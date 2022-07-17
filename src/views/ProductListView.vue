@@ -387,40 +387,32 @@
             "
             v-on:click="getProductsByPage(2)"
           >
-            {{
-              data.pagination?.next?.page - 1 <= 4
-                ? 2
-                : data.pagination?.next?.page - 1
-            }}
+            {{ data.pagination?.next?.page - 1 < 4 ? 2 : "..." }}
           </div>
           <div
             class="page-item"
             :class="
-              data.pagination?.next?.page - 1 === 3
+              data.pagination?.next?.page - 1 === 3 ||
+              data.pagination?.next?.page - 1 >= 4
                 ? 'bg-success text-white'
                 : 'bg-white text-success'
             "
             v-on:click="getProductsByPage(3)"
           >
             {{
-              data.pagination?.next?.page - 1 <= 4
+              data.pagination?.next?.page - 1 < 4
                 ? 3
                 : data.pagination?.next?.page - 1
             }}
           </div>
           <div
-            class="page-item"
-            :class="
-              data.pagination?.next?.page - 1 === 4
-                ? 'bg-success text-white'
-                : 'bg-white text-success'
-            "
+            class="page-item bg-white text-success"
             v-on:click="getProductsByPage(4)"
           >
             {{
-              data.pagination?.next?.page - 1 <= 4
+              data.pagination?.next?.page - 1 < 4
                 ? 4
-                : data.pagination?.next?.page - 1
+                : data.pagination?.next?.page
             }}
           </div>
           <div
@@ -465,7 +457,6 @@ export default {
       };
       axios(config)
         .then((response) => {
-          console.log(JSON.stringify(response.data.data));
           this.productList = response.data.data;
         })
         .catch((error) => {
@@ -482,8 +473,7 @@ export default {
       };
       axios(config)
         .then((response) => {
-          console.log(JSON.stringify(response.data));
-          console.log(response.data.pagination.next.page);
+          console.log(`Next >> ${response.data.pagination.next.page}`);
           this.data = response.data;
         })
         .catch((error) => {
@@ -501,8 +491,7 @@ export default {
       axios(config)
         .then((response) => {
           console.log(JSON.stringify(response.data));
-          console.log(response.data.pagination.next.page);
-          console.log(response.data.data);
+          console.log(`Next >> ${response.data.pagination.next.page}`);
           this.data = response.data;
           this.productList = response.data.data;
         })
