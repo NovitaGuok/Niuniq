@@ -125,11 +125,12 @@
               </tr>
             </thead>
             <tbody>
-              <template
-                v-for="(product, index) in productList"
-                :key="product._id"
-              >
-                <tr class="align-middle" v-if="product.isVerification == null">
+              <template v-for="(product, index) in productList">
+                <tr
+                  class="align-middle"
+                  v-if="product.isVerification == null"
+                  :key="product._id"
+                >
                   <td scope="row">{{ index + 1 }}.</td>
                   <td>{{ product.name }}</td>
                   <td>
@@ -206,12 +207,10 @@
               </tr>
             </thead>
             <tbody>
-              <template
-                v-for="(product, index) in productList"
-                :key="product._id"
-              >
+              <template v-for="(product, index) in productList">
                 <tr
                   class="align-middle"
+                  :key="product._id"
                   v-if="
                     !product.isVerification && product.isVerification !== null
                   "
@@ -292,11 +291,12 @@
               </tr>
             </thead>
             <tbody>
-              <template
-                v-for="(product, index) in productList"
-                :key="product._id"
-              >
-                <tr class="align-middle" v-if="product.isVerification">
+              <template v-for="(product, index) in productList">
+                <tr
+                  class="align-middle"
+                  v-if="product.isVerification"
+                  :key="product._id"
+                >
                   <td scope="row">{{ index + 1 }}.</td>
                   <td>{{ product.name }}</td>
                   <td>
