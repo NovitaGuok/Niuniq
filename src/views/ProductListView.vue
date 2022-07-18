@@ -187,6 +187,9 @@
                     </div>
                   </td>
                 </tr>
+                <div class="align-middle" v-else :key="product._id">
+                  data kosong
+                </div>
               </template>
             </tbody>
           </table>
@@ -271,6 +274,9 @@
                     </div>
                   </td>
                 </tr>
+                <div class="align-middle" v-else :key="product._id">
+                  data kosong
+                </div>
               </template>
             </tbody>
           </table>
@@ -353,6 +359,9 @@
                     </div>
                   </td>
                 </tr>
+                <div class="align-middle" v-else :key="product._id">
+                  data kosong
+                </div>
               </template>
             </tbody>
           </table>
