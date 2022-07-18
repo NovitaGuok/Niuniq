@@ -362,7 +362,7 @@
         <div class="fw-bold d-flex justify-content-end mt-5">
           <div
             class="page-item bg-white text-success"
-            v-if="data.pagination?.next?.page - 1 !== 1"
+            v-if="data.pagination?.next.page - 1 !== 1"
             v-on:click="getProductsByPage(data.pagination?.prev?.page)"
           >
             &lt;
@@ -370,7 +370,7 @@
           <div
             class="page-item"
             :class="
-              data.pagination?.next?.page - 1 === 1
+              data.pagination?.next.page - 1 === 1
                 ? 'bg-success text-white'
                 : 'bg-white text-success'
             "
@@ -381,61 +381,61 @@
           <div
             class="page-item"
             :class="
-              data.pagination?.next?.page - 1 === 2
+              data.pagination?.next.page - 1 === 2
                 ? 'bg-success text-white'
                 : 'bg-white text-success'
             "
             v-on:click="
               getProductsByPage(
-                data.pagination?.next?.page - 1 < 4
+                data.pagination?.next.page - 1 < 4
                   ? 2
-                  : data.pagination?.next?.page - 1
+                  : data.pagination?.next.page - 1
               )
             "
           >
-            {{ data.pagination?.next?.page - 1 < 4 ? 2 : "..." }}
+            {{ data.pagination?.next.page - 1 < 4 ? 2 : "..." }}
           </div>
           <div
             class="page-item"
             :class="
-              data.pagination?.next?.page - 1 === 3 ||
-              data.pagination?.next?.page - 1 >= 4
+              data.pagination?.next.page - 1 === 3 ||
+              data.pagination?.next.page - 1 >= 4
                 ? 'bg-success text-white'
                 : 'bg-white text-success'
             "
             v-on:click="
               getProductsByPage(
-                data.pagination?.next?.page - 1 < 4
+                data.pagination?.next.page - 1 < 4
                   ? 3
-                  : data.pagination?.next?.page - 1
+                  : data.pagination?.next.page - 1
               )
             "
           >
             {{
-              data.pagination?.next?.page - 1 < 4
+              data.pagination?.next.page - 1 < 4
                 ? 3
-                : data.pagination?.next?.page - 1
+                : data.pagination?.next.page - 1
             }}
           </div>
           <div
             class="page-item bg-white text-success"
             v-on:click="
               getProductsByPage(
-                data.pagination?.next?.page - 1 < 4
+                data.pagination?.next.page - 1 < 4
                   ? 4
-                  : data.pagination?.next?.page
+                  : data.pagination?.next.page
               )
             "
           >
             {{
-              data.pagination?.next?.page - 1 < 4
+              data.pagination?.next.page - 1 < 4
                 ? 4
-                : data.pagination?.next?.page
+                : data.pagination?.next.page
             }}
           </div>
           <div
             class="page-item bg-white text-success"
-            v-on:click="getProductsByPage(data.pagination?.next?.page)"
+            v-on:click="getProductsByPage(data.pagination?.next.page)"
           >
             &gt;
           </div>
