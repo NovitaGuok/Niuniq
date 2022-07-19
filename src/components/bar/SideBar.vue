@@ -1,7 +1,10 @@
 <template>
   <div class="sidebar container-fluid">
     <div class="row flex-nowrap">
-      <div class="col-auto col-xl-2 px-sm-2 px-0 bg-white" style="width: 15%">
+      <div
+        class="col-auto col-xl-2 px-sm-2 px-0 bg-white position-fixed"
+        style="width: 15%; z-index=999"
+      >
         <div
           class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
         >
@@ -27,7 +30,10 @@
           </ul>
         </div>
       </div>
-      <div class="bg-light p-4 pe-5" style="width: 85%">
+      <div
+        class="bg-light p-4 pe-5"
+        style="width: 85%; margin-left: 15% !important"
+      >
         <!-- <router-view /> -->
         <shop-info class="mb-4" />
         <dashboard class="mb-4" />

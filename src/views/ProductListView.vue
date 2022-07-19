@@ -1,7 +1,7 @@
 <template>
   <div
     id="product-list"
-    class="card p-4 border-0 shadow"
+    class="menu-item-list product-list card p-4 border-0 shadow"
     style="border-radius: 8px"
   >
     <div class="position-relative">
